@@ -1,3 +1,6 @@
+// utwórz w programie egzemplarze klas Student oraz Pracownik,a następnie (przypisz ich składnikom danych wartości pobrane z klawiatury)
+// Zmodyfikuj program z zadania 1 tak, aby przypisanie składnikom danych wartości pobranych zklawiatury, w stworzonych  egzemplarzach klasStudentorazPracownik,//  //// wykonane zostało zapomocą metody zaprzyjaźnionej z klasą.
+
 #include <stdio.h>
 #include <conio.h>
 #include <math.h>
@@ -6,8 +9,7 @@
 #include <iostream>
 #include <ctime>
 #include <dos.h>
-// utwórz w programie egzemplarze klas Student oraz Pracownik,a następnie (przypisz ich składnikom danych wartości pobrane z klawiatury)
-// Zmodyfikuj program z zadania 1 tak, aby przypisanie składnikom danych wartości pobranych zklawiatury, w stworzonych  egzemplarzach klasStudentorazPracownik,//  //// wykonane zostało zapomocą metody zaprzyjaźnionej z klasą.
+
 using namespace std;
  
 class osoba {

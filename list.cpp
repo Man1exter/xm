@@ -1,3 +1,4 @@
+// utwórz w programie egzemplarze klas Student oraz Pracownik,a następnie (przypisz ich składnikom danych wartości pobrane z klawiatury)
 #include <stdio.h>
 #include <conio.h>
 #include <math.h>
@@ -6,8 +7,6 @@
 #include <iostream>
 #include <ctime>
 #include <dos.h>
-
-// utwórz w programie egzemplarze klas Student oraz Pracownik,a następnie (przypisz ich składnikom danych wartości pobrane z klawiatury)
 
 using namespace std;
  
