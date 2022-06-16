@@ -65,11 +65,15 @@ class Student : public Osoba {
         string imie, nazwisko, grupa;
         int wiek;
 
-        cout << "Imie,nazwisko,wiek,grupa: ";
+        cout << "Podaj imie: ";
         cin >> imie;
+        cout << "Podaj nazwisko: ";
         cin >> nazwisko;
+        cout << "Podaj wiek: ";
         cin >> wiek;
+        cout << "Podaj grupe: ";
         cin >> grupa;
+        cout << endl;
 
         stu.imie_wybrane(imie);
         stu.Nazwisko_wybrane(nazwisko);
@@ -106,15 +110,19 @@ class Pracownik : public Osoba
 {
 
 friend void wprowadz_dane(Pracownik &prac){
-    
+
     string imie, nazwisko, stanowisko;
     int wiek;
 
-    cout << "Imie,nazwisko,wiek,grupa: ";
+    cout << "Podaj imie: ";
     cin >> imie;
+    cout << "Podaj nazwisko: ";
     cin >> nazwisko;
+    cout << "Podaj wiek: ";
     cin >> wiek;
+    cout << "Podaj stanowisko: ";
     cin >> stanowisko;
+    cout << endl;
 
     prac.imie_wybrane(imie);
     prac.Nazwisko_wybrane(nazwisko);
