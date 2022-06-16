@@ -9,75 +9,155 @@
 #include <dos.h>
 
 using namespace std;
- 
-class osoba {
- 
-protected:
-    string imie = "Mariusz";
-    string nazwisko = "Perzyński";
-    int wiek = 21;
- 
-public:
-    void pokaz_dane();
+
+class Osoba {
+
+    private:
+
+        string imie;
+        string nazwisko;
+        int wiek;
+
+    protected:
+
+        string zebrane_imie(){
+            return imie;
+        }
+        void imie_wybrane(string imie) {
+            this->imie = imie;
+        }
+        string zebrane_nazwisko(){
+            return nazwisko;
+        }
+        void Nazwisko_wybrane(string nazwisko) {
+            this->nazwisko = nazwisko;
+        }
+        int zebrane_wiek() {
+            return wiek;
+        }
+        void wiek_wybrany(int wiek) {
+            this->wiek = wiek;
+        }
+
+    public:
+        void pokaz_dane(){
+            cout << endl;
+            cout << 
+            "Imie:" << zebrane_imie() << endl << 
+            "Nazwisko:" << zebrane_nazwisko() << endl << 
+            "Wiek:" << zebrane_wiek() << endl;
+            cout << endl;
 };
- 
-void osoba::pokaz_dane() {
-    cout << "\nImie: " << imie << "\n";
-    cout << "Nazwisko: " << nazwisko << "\n";
-    cout << "Wiek: " << wiek << "\n";
-}
- 
-class pracownik : private osoba
+
+        Osoba(string imie, string nazwisko, int wiek){
+            imie_wybrane(imie);
+            Nazwisko_wybrane(nazwisko);
+            wiek_wybrany(wiek);
+        };
+        Osoba(){};
+};
+
+
+class Student : public Osoba {
+
+    friend void wprowadz_dane(Student &stu){
+
+        string imie, nazwisko, grupa;
+        int wiek;
+
+        cout << "Imie,nazwisko,wiek,grupa: ";
+        cin >> imie;
+        cin >> nazwisko;
+        cin >> wiek;
+        cin >> grupa;
+
+        stu.imie_wybrane(imie);
+        stu.Nazwisko_wybrane(nazwisko);
+        stu.wiek_wybrany(wiek);
+        stu.grupa = grupa;
+    }
+
+    private:
+
+        string grupa;
+
+    public:
+
+        void pokaz_dane(){
+            cout << endl;
+            cout << 
+            "Imie:" << zebrane_imie() << endl << 
+            "Nazwisko:" << zebrane_nazwisko() << endl << 
+            "Wiek:" << zebrane_wiek() << endl << 
+            "Grupa:" << grupa<< endl;
+            cout << endl;
+        };
+        Student(string imie, string nazwisko, int wiek, string grupa){
+            imie_wybrane(imie);
+            Nazwisko_wybrane(nazwisko);
+            wiek_wybrany(wiek);
+            this->grupa = grupa;
+        };
+        Student(){};
+};
+
+
+class Pracownik : public Osoba
 {
-private:
-    string stanowisko;
-    void pobierz_dane();
-public:
-    void pokaz_dane();
-};
- 
-void pracownik::pobierz_dane() {
-    cout << "\nPodaj stanowisko: \n";
+
+friend void wprowadz_dane(Pracownik &prac){
+    
+    string imie, nazwisko, stanowisko;
+    int wiek;
+
+    cout << "Imie,nazwisko,wiek,grupa: ";
+    cin >> imie;
+    cin >> nazwisko;
+    cin >> wiek;
     cin >> stanowisko;
+
+    prac.imie_wybrane(imie);
+    prac.Nazwisko_wybrane(nazwisko);
+    prac.wiek_wybrany(wiek);
+    prac.stanowisko = stanowisko;
+
 }
- 
-void pracownik::pokaz_dane() {
-    pobierz_dane();
-    cout << "\nImie: " << imie << "\n";
-    cout << "Nazwisko: " << nazwisko << "\n";
-    cout << "Wiek: " << wiek << "\n";
-    cout << "Stanowisko: " << stanowisko << "\n";
-}
-class student : private osoba
-{
+
 private:
-    string grupa;
-    void pobierz_dane();
+
+    string stanowisko;
+
 public:
-    void pokaz_dane();
+
+    void pokaz_dane() {
+         cout << endl;
+         cout << 
+         "Imie:" << zebrane_imie() << endl << 
+         "Nazwisko:" << zebrane_nazwisko() << endl << 
+         "Wiek:" << zebrane_wiek() << endl << 
+         "Stanowisko:" << stanowisko << endl;
+         cout << endl;
+    };
+
+    Pracownik(string imie, string nazwisko, int wiek, string stanowisko) {
+        imie_wybrane(imie);
+        Nazwisko_wybrane(nazwisko);
+        wiek_wybrany(wiek);
+        this->stanowisko = stanowisko;
+    };
+
+    Pracownik(){};
 };
- 
-void student::pobierz_dane() {
-    cout << "\nPodaj grupe: \n";
-    cin >> grupa;
-}
- 
-void student::pokaz_dane() {
-    pobierz_dane();
-    cout << "\nImie: " << imie << "\n";
-    cout << "Nazwisko: " << nazwisko << "\n";
-    cout << "Wiek: " << wiek << "\n";
-    cout << "Stanowisko: " << grupa << "\n";
-}
- 
-int main()
-{
-    osoba p1;
-    pracownik p2;
-    student p3;
- 
-    p1.pokaz_dane();
-    p2.pokaz_dane();
-    p3.pokaz_dane();
-    return 0;
+
+
+int main() {
+   
+    Student studentTest;
+    wprowadz_dane(studentTest);
+
+    Pracownik pracownikTest;
+    wprowadz_dane(pracownikTest);
+
+    studentTest.pokaz_dane();
+    pracownikTest.pokaz_dane();
 }
