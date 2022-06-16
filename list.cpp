@@ -169,3 +169,27 @@ int main() {
     studentTest.pokaz_dane();
     pracownikTest.pokaz_dane();
 }
+
+
+// Przykład z użyciem wskaznika this->
+// #include <iostream>
+
+// class Klasa
+// {
+// public:
+//     void m( Klasa & x )
+//     {
+//         if( this == & x )
+//              std::cout << "Uzyto tego samego obiektu" << std::endl;
+//         else
+//              std::cout << "Uzyto innego obiektu" << std::endl;
+       
+//     }
+// };
+
+// int main()
+// {
+//     Klasa a, b;
+//     a.m( b );
+//     b.m( b );
+// }
